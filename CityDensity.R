@@ -24,7 +24,7 @@ View(AreaPerCityProvince)
 
 #Population per Distinct CityProvince
 library("sqldf")
-SumPopCityProv <- sqldf("SELECT population.Region, population.CityProvince,
+SumPopCityProv <- sqldf("SELECT population.Region, population.Province, population.CityProvince,
                             SUM(population.population) AS TotalPop
                           
                             FROM population
@@ -38,12 +38,12 @@ View(SumPopCityProv)
 
 #Population Density per CityProvince
 library("sqldf")
-Temp <- sqldf("SELECT SumPopCityProv.CityProvince, 
+Temp <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, SumPopCityProv.CityProvince, 
                             SumPopCityProv.TotalPop/AreaPerCityProvince.AreaperCity AS PopDen
                             
                             FROM SumPopCityProv
                             
                             INNER JOIN AreaPerCityProvince ON SumPopCityProv.region = AreaPerCityProvince.region
-                            GROUP BY SumPopCityProv.CityProvince, PopDen DESC
+                            GROUP BY SumPopCityProv.CityProvince
                             ;")
 View(Temp)
