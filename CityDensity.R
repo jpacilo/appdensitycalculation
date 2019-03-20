@@ -6,6 +6,7 @@ regionarea <- read.csv("regionarea.csv")
 population <- read.csv("population.csv")
 
 
+
 #Area per Distinct CityProvince
 library("sqldf")
 AreaPerCityProvince = sqldf("SELECT population.Region, Count(Distinct population.CityProvince),
@@ -20,8 +21,6 @@ View(AreaPerCityProvince)
 
 
 
-
-
 #Total Population per CityProvince
 library("sqldf")
 SumPopCityProv <- sqldf("SELECT population.Region, population.Province, population.CityProvince,
@@ -32,7 +31,6 @@ SumPopCityProv <- sqldf("SELECT population.Region, population.Province, populati
                             GROUP BY population.CityProvince
                             ;")
 View(SumPopCityProv)
-
 
 
 
