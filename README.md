@@ -42,7 +42,7 @@ main <- mutate(main, population_density = Population / area_per_barangay)
 main <- arrange(main, desc(population_density))[1:5,]
 ```
 
-# Write
+### Write
 We used the write.csv function to write out the result of main.
 ```{r}
 write.csv(main, file = "BarangayDensity.csv") 
