@@ -9,5 +9,7 @@ View(Region)
 
 library(sqldf)
 
-total <- sqldf("select * from Region inner join Brgy on Region.Region = Brgy.Region")
+total <- sqldf("select Region.Area, Region.Region, Brgy.Province, Brgy.CityProvince, Brgy.Barangay,
+Brgy.HouseholdPopulation, Brgy.NHouseholds, 
+               from Region inner join Brgy on Region.Region = Brgy.Region")
 View(total)
