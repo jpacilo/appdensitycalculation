@@ -43,5 +43,6 @@ Temp <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, SumPopCity
                             
                             INNER JOIN AreaPerCityProvince ON SumPopCityProv.region = AreaPerCityProvince.region
                             GROUP BY SumPopCityProv.CityProvince
+                            ORDER BY PopDen DESC
                             ;")
 View(Temp)
