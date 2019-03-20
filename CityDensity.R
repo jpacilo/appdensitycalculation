@@ -49,4 +49,4 @@ CityDensity <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, Sum
 View(CityDensity)
 
 
-write.csv(main, file = "CityDensity.csv") 
+write.csv(CityDensity, file = "CityDensity.csv") 
