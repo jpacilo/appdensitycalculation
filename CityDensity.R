@@ -36,7 +36,7 @@ View(SumPopCityProv)
 
 #Population Density per CityProvince
 library("sqldf")
-Temp <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, SumPopCityProv.CityProvince, 
+CityDensity <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, SumPopCityProv.CityProvince, 
                             SumPopCityProv.TotalPop/AreaPerCityProvince.AreaperCity AS PopDen
                             
                             FROM SumPopCityProv
@@ -46,4 +46,7 @@ Temp <- sqldf("SELECT SumPopCityProv.Region, SumPopCityProv.Province, SumPopCity
                             ORDER BY PopDen DESC
                             limit 5
                             ;")
-View(Temp)
+View(CityDensity)
+
+
+write.csv(main, file = "CityDensity.csv") 
