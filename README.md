@@ -118,5 +118,5 @@ View(CityDensity)
 ### Write
 We used the write.csv function to write out the result of main.
 ```{r}
-write.csv(main, file = "CityDensity.csv") 
+write.csv(CityDensity, file = "CityDensity.csv") 
 ```
