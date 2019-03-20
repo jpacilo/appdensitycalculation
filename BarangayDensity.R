@@ -9,7 +9,7 @@ population <- read.csv("population.csv")
 innerjoin <- merge(x = population, y = region_area, by = c("Region"))
 
 main <- region_area
-main$count <- barangay_count <- unlist(lapply(1:18, function(x) nrow(filter(innerjoin, Region == region_area$Region[x]))))
+main$count <- unlist(lapply(1:18, function(x) nrow(filter(innerjoin, Region == region_area$Region[x]))))
 main$area_per_barangay <- main$Area / main$count 
 
 main <- mutate(main, area_per_barangay = Area / count)    
@@ -17,4 +17,4 @@ main <- merge(x = population, y = main, by = c("Region"))
 main <- mutate(main, population_density = Population / area_per_barangay)
 main <- arrange(main, desc(population_density))[1:5,]
 
-write.csv(main, file = "BarangayDensity.csv")   
+write.csv(main, file = "BarangayDensity.csv") 
