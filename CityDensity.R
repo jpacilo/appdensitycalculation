@@ -22,7 +22,7 @@ View(AreaPerCityProvince)
 
 
 
-#Population per Distinct CityProvince
+#Total Population per CityProvince
 library("sqldf")
 SumPopCityProv <- sqldf("SELECT population.Region, population.Province, population.CityProvince,
                             SUM(population.population) AS TotalPop
